@@ -1,0 +1,11 @@
+# Version of docker compose that we will use in this page
+version: '3'
+
+services: 
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: always
+    build: . #build Dockerfile inside current directory to use it as image
+    ports:
+      - "4001:8081" # - in yml file specify an array
