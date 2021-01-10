@@ -1,4 +1,4 @@
-### docker Mastery: with Kubernetes +Swarm from a >docker Captain
+## docker Mastery: with Kubernetes +Swarm from a >docker Captain
 
 >docker version
 
@@ -6,6 +6,8 @@
 
 
 ---
+
+## Container
 
 >docker container run --publish 80:80 nginx
 
@@ -81,9 +83,13 @@ list process that running inside container
 
 **exec** Run additional process in running container
 
+>docker container run -it --rm --name ubuntu ubuntu bash
+
+**--rm** used to remove container when exit out from shell.
+
 ---
 
-### Network
+## Network
 All container in same network can talk to each other without specify -p 
 
 >docker container port webhost
@@ -92,15 +98,56 @@ All container in same network can talk to each other without specify -p
 
 >docker container run -d --name new-nginx --network my-app-net nginx
 
-**network** set container to new created network
+**connect** set container to new created network
 
 >docker network connect NETWORK_ID CONTAINER_ID
 
 >docker network disconnect NETWORK_ID CONTAINER_ID
 
+>docker container exec -it my-nginx ping new-nginx 
+
+Containers thats run inside new created network can talk to each other by there name
+
 ---
 
+## Docker Compose
 
+Docker compose automatically create new virtual networks for containers. (they can talk to each other using name)
+
+
+## Image
+
+>docker image ls
+
+>docker image rm IMAGE_ID
+
+Images does not have name
+
+>docker image history
+
+**history** Show layers of changes made in image (not list of things that happened in the container)
+
+> docker image pull nginx
+
+> docker image tag nginx tohid1987/nginx
+
+**tag** assign one or more tags to an image
+
+> docker image push tohid1987/nginx
+
+>docker image build -t custome-nginx .
+
+Build an Dockerfile image that exist inside current directory
+
+To specify a docker build referencing a file other tan default(Dockerfile) use **-f**
+
+> docker image prune -a
+
+which will remove all images you're not using
+
+> docker system prune
+
+will clean up everything
 
 **bold**
 ***
