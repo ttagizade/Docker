@@ -110,11 +110,6 @@ Containers thats run inside new created network can talk to each other by there 
 
 ---
 
-## Docker Compose
-
-Docker compose automatically create new virtual networks for containers. (they can talk to each other using name)
-
-
 ## Image
 
 >docker image ls
@@ -163,6 +158,8 @@ We can set a name to volume. Volume will not be remove when container stoped or 
 
 ## docker-compose
 
+Docker compose automatically create new virtual networks for containers. (they can talk to each other using name)
+
 > docker-compose up
 
 > docker-compose up -d
@@ -175,30 +172,7 @@ stop all container and remove cont/vol/net
 
 > docker-compose logs
 
+> docker-compose down -rmi local
 
+delete environment and local image as well, clean every thins all
 
-
-
-
-**bold**
-***
-Language
-your code
-
----
-
-1. Item 1
-2. Item 2
-3. Item 3
-   * Sub item 1
-   * Sub item 3
-* Unordered item
-* Unordered item
-* Unordered item
----
-|Name|Email|Address|    
-|---|---|---|     
-|John|john@example.com|Address1| 
-|John|john@example.com|Address1| 
----
-Your quote looks like this.
