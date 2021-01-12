@@ -149,6 +149,37 @@ which will remove all images you're not using
 
 will clean up everything
 
+## Volume
+
+> docker volume ls
+
+>docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
+
+We can set a name to volume. Volume will not be remove when container stoped or removed.
+
+**we can set same volume to multiple container**
+
+> documer volume create
+
+## docker-compose
+
+> docker-compose up
+
+> docker-compose up -d
+
+setup volumes/networks and start all containers
+
+> docker-compose down
+
+stop all container and remove cont/vol/net
+
+> docker-compose logs
+
+
+
+
+
+
 **bold**
 ***
 Language
