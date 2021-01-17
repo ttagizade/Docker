@@ -1,0 +1,21 @@
+secrets:
+  psql-pw:
+    file: E:\Udemy\docker\sample\swarm-stack-3\psql-fake-password.txt
+services:
+  drupal:
+    build:
+      context: E:\Udemy\docker\sample\swarm-stack-3
+    image: custom-drupal
+    ports:
+    - published: 80
+      target: 80
+  postgres:
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/psql-pw
+    image: postgres:12.1
+    secrets:
+    - source: psql-pw
+    volumes:
+    - E:\Udemy\docker\sample\swarm-stack-3\sample-data:/var/lib/postgresql/data:rw
+version: '3.1'
+
